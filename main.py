@@ -3,12 +3,13 @@
 import pandas as pd
 import numpy as np
 from keras.layers import LeakyReLU
+from keras.models import load_model
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D,MaxPooling2D
 from tensorflow.keras.layers import Dense,Flatten
 from tensorflow.keras.optimizers import Adamax
 import xgboost as xgb
-from sklearn import metrics
+# from sklearn import metrics
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
@@ -28,7 +29,7 @@ Y = np.array(DF[13])
 
 x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.1,random_state=85)
 
-# build CNN model 
+# build CNN model
 
 model = Sequential()
 model.add(Conv2D(16,(1,5),padding="same",input_shape=(1,13,1),activation=LeakyReLU(alpha=0.1)))
@@ -44,7 +45,10 @@ model.add(Dense(12,activation=LeakyReLU(alpha=0.1)))
 model.add(Dense(1,activation=LeakyReLU(alpha=0.1)))
 
 model.compile(loss="mse",optimizer=Adamax(lr=0.0000066))
-model.load_weights("/home/pekora0112/CNN/CNN_9.8*10^-5.h5") 
+model.load_weights("model.h5")
+
+# load_model = load_model("E://logs/iris_model.h5")
+
 
 y_CNN = model.predict(x_test.reshape(len(x_test),1,13,1))
 
