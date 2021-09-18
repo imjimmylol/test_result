@@ -15,7 +15,7 @@ from sklearn.model_selection import train_test_split
 
 # read data
 
-df = pd.read_csv("train20210817v2.csv")
+df = pd.read_csv("./data/train20210817v2.csv")
 df= df.drop(["SeqNo"],axis=1)
 
 # data proccess MinMaxScale
@@ -45,7 +45,7 @@ model.add(Dense(12,activation=LeakyReLU(alpha=0.1)))
 model.add(Dense(1,activation=LeakyReLU(alpha=0.1)))
 
 model.compile(loss="mse",optimizer=Adamax(lr=0.0000066))
-model.load_weights("model.h5")
+model.load_weights("./cnn_weight/model.h5")
 
 # load_model = load_model("E://logs/iris_model.h5")
 
@@ -62,7 +62,7 @@ XGB.random_state=87
 XGB.fit(x_train,y_train)
 y_RF_series = XGB.predict(x_test)
 
-final_data = pd.read_csv("2021test0831.csv")
+final_data = pd.read_csv("./data/2021test0831.csv")
 
 final_data = final_data.drop(["SeqNo"],axis=1)
 
@@ -76,7 +76,7 @@ final_array = np.array(final_DF)
 
 final_Y = 0.8*XGB.predict(final_array) + 0.2*model.predict(final_array.reshape(7222,1,13,1)).reshape(7222,)
 
-df_result = pd.read_csv("2110999_TestResult.csv")
+df_result = pd.read_csv("./data/2110999_TestResult.csv")
 
 result_Y = final_Y*86.532 - 2.438
 
@@ -85,7 +85,7 @@ DF_RESULT = pd.concat([df_result,result_Y_df],axis=1)
 
 DF_RESULT = DF_RESULT.drop(["預測值"],axis=1)
 
-DF_RESULT.rename(columns={0:"預測值"}).to_csv("110999_TestResult.csv",index=False,encoding="UTF-8")
+DF_RESULT.rename(columns={0:"預測值"}).to_csv("./result/110999_TestResult.csv",index=False,encoding="UTF-8")
 
 
 
