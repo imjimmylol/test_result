@@ -2,6 +2,7 @@
 
 import pandas as pd
 import numpy as np
+import pickle
 from keras.layers import LeakyReLU
 from keras.models import load_model
 from tensorflow.keras.models import Sequential
@@ -12,6 +13,7 @@ import xgboost as xgb
 # from sklearn import metrics
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
+import os
 
 # read data
 
@@ -54,12 +56,7 @@ y_CNN = model.predict(x_test.reshape(len(x_test),1,13,1))
 
 # build XGB model
 
-XGB = xgb.XGBRFRegressor()
-XGB.n_estimators=74
-XGB.max_depth=15
-XGB.subsample=0.9
-XGB.random_state=87
-XGB.fit(x_train,y_train)
+XGB = pickle.load(open(path+'\\xgb_model\\xgb_model', "rb"))
 y_RF_series = XGB.predict(x_test)
 
 final_data = pd.read_csv("./data/2021test0831.csv")

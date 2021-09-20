@@ -12,3 +12,4 @@ tensorflow-estimator==2.5.0
 tensorflow-metadata==1.0.0
 xgboost==1.4.2
 sklearn==0.0
+pickle-mixin==1.0.2
