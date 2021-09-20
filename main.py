@@ -56,6 +56,7 @@ y_CNN = model.predict(x_test.reshape(len(x_test),1,13,1))
 
 # build XGB model
 
+path = os.getcwd()
 XGB = pickle.load(open(path+'\\xgb_model\\xgb_model', "rb"))
 y_RF_series = XGB.predict(x_test)
 
