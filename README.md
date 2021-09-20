@@ -20,6 +20,6 @@ If your ID is da6455c5f597 than copy ```da64```.
 
 ## Use docker cp command to move model output into local host
 
-### type command ```docker cp [your id]:./app/result/110999_TestResult.csv  C:/Users/user/Desktop/dinner_th/result``` in terminal 
+### type command ```docker cp [your id]:./app/result/110028_TestResult.csv  C:/Users/user/Desktop/test_result/result``` in terminal 
 
-### for example: ```docker cp [id]:./app/result/110999_TestResult.csv  C:/Users/user/Desktop/dinner_th/result```
+### for example: ```docker cp [id]:./app/result/110028_TestResult.csv  C:/Users/user/Desktop/test_result/result```

@@ -47,7 +47,7 @@ model.add(Dense(12,activation=LeakyReLU(alpha=0.1)))
 model.add(Dense(1,activation=LeakyReLU(alpha=0.1)))
 
 model.compile(loss="mse",optimizer=Adamax(lr=0.0000066))
-model.load_weights(path+'\\cnn_weight\\model.h5')
+model.load_weights('./cnn_weight/model.h5')
 
 
 # load_model = load_model("E://logs/iris_model.h5")
@@ -56,7 +56,7 @@ model.load_weights(path+'\\cnn_weight\\model.h5')
 y_CNN = model.predict(x_test.reshape(len(x_test),1,13,1))
 
 # build XGB model
-XGB = pickle.load(open(path+'\\xgb_model\\xgb_model', "rb"))
+XGB = pickle.load(open('./xgb_model/xgb_model', "rb"))
 y_RF_series = XGB.predict(x_test)
 
 final_data = pd.read_csv("./data/2021test0831.csv")
