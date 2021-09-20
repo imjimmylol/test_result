@@ -85,7 +85,7 @@ DF_RESULT = pd.concat([df_result,result_Y_df],axis=1)
 
 DF_RESULT = DF_RESULT.drop(["預測值"],axis=1)
 
-DF_RESULT.rename(columns={0:"預測值"}).to_csv("./result/110999_TestResult.csv",index=False,encoding="UTF-8")
+DF_RESULT.rename(columns={0:"預測值"}).to_csv("./result/110028_TestResult.csv",index=False,encoding="UTF-8")
 
 
 
