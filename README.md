@@ -1,6 +1,6 @@
 # OptionA : Run model locally 
 
-### 1. ```pip isntall -r requirements.txt```
+### 1. ```pip install -r requirements.txt```
 ### 2. Check the directory named result, make sure it's empty
 ### 3. After finishing installation of necessary module
 ### 4. ```python manin.py```

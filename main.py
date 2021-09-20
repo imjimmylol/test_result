@@ -13,10 +13,8 @@ import xgboost as xgb
 # from sklearn import metrics
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
-import os
 
 # read data
-path = os.getcwd()
 df = pd.read_csv("./data/train20210817v2.csv")
 df= df.drop(["SeqNo"],axis=1)
 
