@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 import os
 
 # read data
-
+path = os.getcwd()
 df = pd.read_csv("./data/train20210817v2.csv")
 df= df.drop(["SeqNo"],axis=1)
 
@@ -47,7 +47,8 @@ model.add(Dense(12,activation=LeakyReLU(alpha=0.1)))
 model.add(Dense(1,activation=LeakyReLU(alpha=0.1)))
 
 model.compile(loss="mse",optimizer=Adamax(lr=0.0000066))
-model.load_weights("./cnn_weight/model.h5")
+model.load_weights(path+'\\cnn_weight\\model.h5')
+
 
 # load_model = load_model("E://logs/iris_model.h5")
 
@@ -55,8 +56,6 @@ model.load_weights("./cnn_weight/model.h5")
 y_CNN = model.predict(x_test.reshape(len(x_test),1,13,1))
 
 # build XGB model
-
-path = os.getcwd()
 XGB = pickle.load(open(path+'\\xgb_model\\xgb_model', "rb"))
 y_RF_series = XGB.predict(x_test)
 
