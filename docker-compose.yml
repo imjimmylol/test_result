@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: Dockerfile 
 
-    tty: true 
+    command: tail -F anything
     image: fb_envtest_image
     container_name: fb_envtest_container
     volumes:
