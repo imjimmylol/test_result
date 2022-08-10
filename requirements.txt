@@ -1,4 +1,4 @@
 tf-nightly==2.10.0.dev20220706
 pandas==1.4.3
 scikit-learn==1.1.1
-xgboost==1.4.2
+xgboost==1.4.2  
